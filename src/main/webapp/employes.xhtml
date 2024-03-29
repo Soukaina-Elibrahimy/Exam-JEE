@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <h:outputStylesheet library="webjars" name="bootstrap/5.3.3/css/bootstrap.min.css" />
+</h:head>
+<h:body>
+    <div class="container mt-3">
+        <h3>Employe List</h3>
+        <h:dataTable value="#{EmployeBean.employes}" var="employe" styleClass="table table-striped" headerClass=" " rowClasses="">
+            <h:column >
+                <f:facet name="header">ID</f:facet>
+                #{employe.id}
+            </h:column>
+            <h:column >
+                <f:facet name="header">Name</f:facet>
+                #{student.name}
+            </h:column>
+            <h:column >
+                <f:facet name="header">Skills</f:facet>
+                #{employe.skills}
+            </h:column>
+            <h:column >
+                <f:facet name="header">Projet</f:facet>
+                #{employe.projets}
+            </h:column>
+            <h:column >
+            <h:commandButton action="#{EmployeBean.deleteEmploye()}" styleClass="btn btn-danger" value="remove" >
+                <f:setPropertyActionListener target="#{studentBean.employeIdToDelete}" value="#{employe.id}" />
+            </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </div>
+</h:body>
+</html>
